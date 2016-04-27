@@ -1,0 +1,3 @@
+jogador = musica
+time = album
+posicao = artista
