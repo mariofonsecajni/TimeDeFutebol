@@ -4,7 +4,7 @@ import java.util.List;
 
 import model.domain.Posicao;
 
-public interface ArtistaDao {
+public interface PosicaoDao {
 
 	List<Posicao> getArtistas(Posicao artista);
 	

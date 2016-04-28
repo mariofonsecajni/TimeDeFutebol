@@ -146,6 +146,15 @@
                         <password>sa</password>
                     </security>
                 </datasource>
+				<datasources>
+                <datasource jndi-name="java:jboss/datasources/SEGURANCADS" pool-name="SEGURANCADS" enabled="true" use-java-context="true">
+                    <connection-url>jdbc:h2:mem:test;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE</connection-url>
+                    <driver>h2</driver>
+                    <security>
+                        <user-name>sa</user-name>
+                        <password>sa</password>
+                    </security>
+                </datasource>
                 <datasource jndi-name="java:jboss/datasources/ECOMMERCEDS" pool-name="ECOMMERCEDS" enabled="true" use-java-context="true">
                     <connection-url>jdbc:mysql://localhost:3306/dbEcommerce</connection-url>
                     <driver>mysql</driver>

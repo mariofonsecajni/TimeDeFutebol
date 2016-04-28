@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 
 import model.domain.Posicao;
 
-public class ArtistaDaoImpl implements ArtistaDao {
+public class PosicaoDaoImpl implements PosicaoDao {
 	
 	@PersistenceContext(unitName="AlbumDeMusicas")
 	private EntityManager entityManager;

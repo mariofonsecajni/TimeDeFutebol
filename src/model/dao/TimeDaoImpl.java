@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 
 import model.domain.Time;
 
-public class AlbumDaoImpl implements AlbumDao {
+public class TimeDaoImpl implements TimeDao {
 	
 	@PersistenceContext(unitName="AlbumDeMusicas")
 	private EntityManager entityManager;

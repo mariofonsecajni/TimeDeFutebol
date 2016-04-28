@@ -4,7 +4,7 @@ import java.util.List;
 
 import model.domain.Time;
 
-public interface AlbumDao {
+public interface TimeDao {
 
 	List<Time> getAlbums(Time album);
 	

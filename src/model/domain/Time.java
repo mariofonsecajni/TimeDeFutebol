@@ -15,7 +15,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-@Table(name="ALBUM")
+@Table(name="TIME")
 public class Time implements Serializable {
 	
 	/**
@@ -25,19 +25,19 @@ public class Time implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="COD_ALBUM")
+	@Column(name="COD_TIME")
 	private Integer numero;
 	
 		
-	@Column(name="NM_ALBUM")
+	@Column(name="NM_TIME")
 	private String nome;
 	
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="DATA")
 	private Date data;
 	
-	@OneToMany(mappedBy="album")
-	List<Musica> musicas;
+	@OneToMany(mappedBy="time")
+	List<Jogador> jogadores;
 		
 	public Time() {
 	}
@@ -53,7 +53,7 @@ public class Time implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Album [numero=" + numero + ", nome=" + nome + ", data=" + data + "]";
+		return "Time [numero=" + numero + ", nome=" + nome + ", data=" + data + "]";
 	}
 
 	public Integer getNumero() {
