@@ -11,42 +11,42 @@ import model.domain.Time;
 
 public class TimeDaoImpl implements TimeDao {
 	
-	@PersistenceContext(unitName="AlbumDeMusicas")
+	@PersistenceContext(unitName="TimeDeMusicas")
 	private EntityManager entityManager;
 	
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Time> getAlbums(Time album) {
-		StringBuffer hql = new StringBuffer("from Album a"
+	public List<Time> getTimes(Time time) {
+		StringBuffer hql = new StringBuffer("from Time a"
 				+ " where 1 = 1");		
-		if (album.getNumero() != null) {
+		if (time.getCodigo() != null) {
 			hql.append(" and a.codigo = :codigo");
 		}
 		Query query = entityManager.createQuery(hql.toString());
-		if (album.getNumero() != null) {
-			query.setParameter("codigo",album.getNumero());
+		if (time.getCodigo() != null) {
+			query.setParameter("codigo",time.getCodigo());
 		} 
 		return query.getResultList();
 	}
 	
 	@Override
 	@Transactional
-	public void excluir(Time album) {
-		album = entityManager.merge(album);
-		entityManager.remove(album);
+	public void excluir(Time time) {
+		time = entityManager.merge(time);
+		entityManager.remove(time);
 	}
 
 	@Override
 	@Transactional
-	public Time salvar(Time album) {
-		entityManager.persist(album);
-		return album;
+	public Time salvar(Time time) {
+		entityManager.persist(time);
+		return time;
 	}
 
 	@Override
 	@Transactional
-	public void atualizar(Time album) {
-		album = entityManager.merge(album);
+	public void atualizar(Time time) {
+		time = entityManager.merge(time);
 	}
 	
 

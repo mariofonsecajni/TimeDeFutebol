@@ -26,7 +26,7 @@ public class Time implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="COD_TIME")
-	private Integer numero;
+	private Integer codigo;
 	
 		
 	@Column(name="NM_TIME")
@@ -42,9 +42,9 @@ public class Time implements Serializable {
 	public Time() {
 	}
 
-	public Time(Integer numero, String nome, Date data) {
+	public Time(Integer codigo, String nome, Date data) {
 		super();
-		this.numero = numero;
+		this.codigo = codigo;
 		this.nome = nome;
 		this.data = data;
 	}
@@ -53,15 +53,15 @@ public class Time implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Time [numero=" + numero + ", nome=" + nome + ", data=" + data + "]";
+		return "Time [codigo=" + codigo + ", nome=" + nome + ", data=" + data + "]";
 	}
 
-	public Integer getNumero() {
-		return numero;
+	public Integer getCodigo() {
+		return codigo;
 	}
 
-	public void setNumero(Integer numero) {
-		this.numero = numero;
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
 	}
 
 	
@@ -85,7 +85,7 @@ public class Time implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((numero == null) ? 0 : numero.hashCode());
+		result = prime * result + ((codigo == null) ? 0 : codigo.hashCode());
 		return result;
 	}
 
@@ -98,10 +98,10 @@ public class Time implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		Time other = (Time) obj;
-		if (numero == null) {
-			if (other.numero != null)
+		if (codigo == null) {
+			if (other.codigo != null)
 				return false;
-		} else if (!numero.equals(other.numero))
+		} else if (!codigo.equals(other.codigo))
 			return false;
 		return true;
 	}

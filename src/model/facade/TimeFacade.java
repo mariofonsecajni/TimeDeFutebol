@@ -4,17 +4,17 @@ import java.util.List;
 
 import model.domain.Time;
 
-public interface AlbumFacade {
+public interface TimeFacade {
 
-	List<Time> getAlbums();
+	List<Time> getTimes();
 
-	List<Time> getAlbums(Integer codigo);
+	List<Time> getTimes(Integer codigo);
 
 	Time salvar(Time album);
 
 	void atualizar(Time album);
 
-	void deletarAlbum(Integer codigo);
+	void deletarTime(Integer codigo);
 
 	
 }

@@ -11,43 +11,43 @@ import model.domain.Posicao;
 
 public class PosicaoDaoImpl implements PosicaoDao {
 	
-	@PersistenceContext(unitName="AlbumDeMusicas")
+	@PersistenceContext(unitName="TimeDeFutebolDS")
 	private EntityManager entityManager;
 	
 	@Override
 	@SuppressWarnings("unchecked")
-	public List<Posicao> getArtistas(Posicao artista) {
-		StringBuffer hql = new StringBuffer("from Artista a"
+	public List<Posicao> getPosicoes(Posicao posicao) {
+		StringBuffer hql = new StringBuffer("from Posicao a"
 				+ " where 1 = 1");		
-		if (artista.getCodigo() != null) {
+		if (posicao.getCodigo() != null) {
 			hql.append(" and a.codigo = :codigo");
 		}
 		Query query = entityManager.createQuery(hql.toString());
-		if (artista.getCodigo() != null) {
-			query.setParameter("codigo",artista.getCodigo());
+		if (posicao.getCodigo() != null) {
+			query.setParameter("codigo",posicao.getCodigo());
 		} 
 		return query.getResultList();
 	}
 	
 	@Override
 	@Transactional
-	public void excluir(Posicao artista) {
-		artista = entityManager.merge(artista);
-		entityManager.remove(artista);
+	public void excluir(Posicao posicao) {
+		posicao = entityManager.merge(posicao);
+		entityManager.remove(posicao);
 	}
 
 	@Override
 	@Transactional
-	public Posicao salvar(Posicao artista) {
-		entityManager.persist(artista);
-		return artista;
+	public Posicao salvar(Posicao posicao) {
+		entityManager.persist(posicao);
+		return posicao;
 	}
 
 	@Override
 	@Transactional
-	public void atualizar(Posicao artista) {
-		artista = entityManager.merge(artista);
-		entityManager.persist(artista);		
+	public void atualizar(Posicao posicao) {
+		posicao = entityManager.merge(posicao);
+		entityManager.persist(posicao);		
 	}
 	
 

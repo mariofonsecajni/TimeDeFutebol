@@ -6,12 +6,12 @@ import model.domain.Time;
 
 public interface TimeDao {
 
-	List<Time> getAlbums(Time album);
+	List<Time> getTimes(Time time);
 	
-	public void excluir(Time album);
+	public void excluir(Time time);
 
-	Time salvar(Time album);
+	Time salvar(Time time);
 
-	void atualizar(Time album);
+	void atualizar(Time time);
 
 }

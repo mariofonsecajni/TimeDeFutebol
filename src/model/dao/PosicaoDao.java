@@ -6,12 +6,12 @@ import model.domain.Posicao;
 
 public interface PosicaoDao {
 
-	List<Posicao> getArtistas(Posicao artista);
+	List<Posicao> getPosicoes(Posicao posicao);
 	
-	public void excluir(Posicao artista);
+	public void excluir(Posicao posicao);
 
-	Posicao salvar(Posicao artista);
+	Posicao salvar(Posicao posicao);
 
-	void atualizar(Posicao artista);
+	void atualizar(Posicao posicao);
 
 }
