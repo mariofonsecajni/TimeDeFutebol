@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html ng-app="timeModule">
+<html ng-app="jogadorModule">
 <head>
 	<meta-charset="utf-8">
-	<title>Time</title>
+	<title>Jogador</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<script src="js/angular.min.js"></script>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="control/timeControl.js"></script>
+	<script src="control/jogadorControl.js"></script>
 </head>
-<body ng-controller="timeControl">
+<body ng-controller="jogadorControl">
 	<div ng-include="'menu.html'"></div>
 	<div class="panel panel-default">
-		<div class="panel-heading">Cadastro de Times</div>
+		<div class="panel-heading">Cadastro de Jogadores</div>
 		<div class="panel-body">
 			<div>
 			  <!-- Nav tabs -->
@@ -36,16 +36,16 @@
 			    	<form>
 					  <div class="form-group col-md-2">
 					    <label for="exampleInputCodigo">Codigo</label>
-					    <input type="number" disabled="true" class="form-control" ng-model="time.codigo" placeholder="Codigo">
+					    <input type="number" disabled="true" class="form-control" ng-model="jogador.codigo" placeholder="Codigo">
 					  </div>
 					  
 					  <div class="form-group col-md-6">
 					    <label for="exampleInputNome">Nome</label>
-					    <input type="text" class="form-control" ng-model="time.nome" placeholder="Insira o Nome do Time">
+					    <input type="text" class="form-control" ng-model="jogador.nome" placeholder="Insira o Nome do Jogador">
 					  </div>
 					    <div class="form-group col-md-6">
-					    <label for="exampleInputPosicao">Data</label>
-					    <input type="text" class="form-control" ng-model="time.posicao" placeholder="Data de fundação do Time">
+					    <label for="exampleInputPosicao">Posicao</label>
+					    <input type="text" class="form-control" ng-model="jogador.posicao" placeholder="Insira a posição do Jogador">
 					  </div>
 					  					
 					</form>
@@ -54,9 +54,9 @@
 				
 				
 			    	<table class="table table-hover">
-			    		<th>Codigo</th><th>Nome</th><th>Data</th>
-			    		<tr ng-repeat="timeTabela in times | filter:criterio" ng-click="seleciona(timeTabela);">
-			    			<td>{{timeTabela.codigo}}</td><td>{{timeTabela.nome}}</td><td>{{timeTabela.data}}</td>
+			    		<th>Codigo</th><th>Nome</th><th>Posição</th>
+			    		<tr ng-repeat="jogadorTabela in jogadors | filter:criterio" ng-click="seleciona(jogadorTabela);">
+			    			<td>{{jogadorTabela.codigo}}</td><td>{{jogadorTabela.nome}}</td><td>{{jogadorTabela.posicao}}</td>
 			    		</tr>
 					</table>
 			    </div>

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html ng-app="timeModule">
+<html ng-app="posicaoModule">
 <head>
 	<meta-charset="utf-8">
-	<title>Time</title>
+	<title>Posicao</title>
 	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<script src="js/angular.min.js"></script>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
-	<script src="control/timeControl.js"></script>
+	<script src="control/posicaoControl.js"></script>
 </head>
-<body ng-controller="timeControl">
+<body ng-controller="posicaoControl">
 	<div ng-include="'menu.html'"></div>
 	<div class="panel panel-default">
-		<div class="panel-heading">Cadastro de Times</div>
+		<div class="panel-heading">Cadastro de Posições</div>
 		<div class="panel-body">
 			<div>
 			  <!-- Nav tabs -->
@@ -36,17 +36,14 @@
 			    	<form>
 					  <div class="form-group col-md-2">
 					    <label for="exampleInputCodigo">Codigo</label>
-					    <input type="number" disabled="true" class="form-control" ng-model="time.codigo" placeholder="Codigo">
+					    <input type="number" disabled="true" class="form-control" ng-model="posicao.codigo" placeholder="Codigo">
 					  </div>
 					  
 					  <div class="form-group col-md-6">
 					    <label for="exampleInputNome">Nome</label>
-					    <input type="text" class="form-control" ng-model="time.nome" placeholder="Insira o Nome do Time">
+					    <input type="text" class="form-control" ng-model="posicao.nome" placeholder="Insira o Nome do Posicao">
 					  </div>
-					    <div class="form-group col-md-6">
-					    <label for="exampleInputPosicao">Data</label>
-					    <input type="text" class="form-control" ng-model="time.posicao" placeholder="Data de fundação do Time">
-					  </div>
+					   
 					  					
 					</form>
 			    </div>
@@ -54,9 +51,9 @@
 				
 				
 			    	<table class="table table-hover">
-			    		<th>Codigo</th><th>Nome</th><th>Data</th>
-			    		<tr ng-repeat="timeTabela in times | filter:criterio" ng-click="seleciona(timeTabela);">
-			    			<td>{{timeTabela.codigo}}</td><td>{{timeTabela.nome}}</td><td>{{timeTabela.data}}</td>
+			    		<th>Codigo</th><th>Nome</th>
+			    		<tr ng-repeat="posicaoTabela in posicoes | filter:criterio" ng-click="seleciona(posicaoTabela);">
+			    			<td>{{posicaoTabela.codigo}}</td><td>{{posicaoTabela.nome}}</td>
 			    		</tr>
 					</table>
 			    </div>
