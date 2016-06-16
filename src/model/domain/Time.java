@@ -34,7 +34,7 @@ public class Time implements Serializable {
 	@Column(name="NM_TIME")
 	private String nome;
 	
-	@Pattern(regexp="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\\d\\d", message="O campo Data precisa estar no padrão dd/mm/aaaa. Exemplo: 15/04/1988")
+	@Pattern(regexp="^([0-9]{2}\\/[0-9]{2}\\/[0-9]{4})$", message="O campo Data precisa estar no padrão dd/mm/aaaa. Exemplo: 15/04/1988")
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name="DATA")
 	private Date data;
