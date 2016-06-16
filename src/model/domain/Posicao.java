@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @XmlRootElement
@@ -29,6 +30,7 @@ public class Posicao implements Serializable {
 	@Column(name="CoD_POSICAO")
 	private Integer codigo;
 	
+	@NotNull(message="O campo: Nome da Posição, é obrigatório!")
 	@Column(name="NM_POSICAO")
 	private String nome;
 	

@@ -13,6 +13,9 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 
 @Entity
 @Table(name = "JOGADOR")
@@ -25,10 +28,14 @@ public class Jogador implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "COD_JOGADOR")
 	private Integer codigo;
-
+	
+	@NotNull(message="O campo: Nome do Jogador, é obrigatório!")
 	@Column(name = "NM_JOGADOR")
 	private String nome;
-
+	
+	@NotNull(message="O campo: Preço, é obrigatório!")
+	@Min(value=1)
+	@Pattern(regexp="^(\\d+((,\\d{1,2})|(\\.\\d{1,2}))?)$", message="O preço não pode ser menor que zero.")
 	@Column(name = "VL_PRECO")
 	private Double preco;
 
