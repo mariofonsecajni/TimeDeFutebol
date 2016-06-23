@@ -14,28 +14,39 @@ app.controller('jogadorControl',function($scope,$http){
 	
 	$scope.pesquisar();
 	
+	$scope.montaMensagemErro = function(listaErro) {
+		$scope.mensagens = [];
+		$scope.mensagens.push('Falha de validação retornada do servidor');
+		angular.forEach(listaErro, function(value, key){
+			 $scope.mensagens.push(value.message);
+		});
+	}
+	
 	$scope.novo = function(){
 		$scope.jogador = {};
 	}
 
-    $scope.salvar = function() {
-		if ($scope.jogador.codigo == '') {
-			$http.post(url,$scope.jogador).success(function(jogador) {
-				$scope.jogadores.push($scope.jogador);
-				$scope.novo();
-			}).error(function (erro) {
-				alert(erro);
-			});
-		} else {
-			$http.put(url,$scope.jogador).success(function(jogador) {
-				$scope.pesquisar();
-				$scope.novo();
-			}).error(function (erro) {
-				alert(erro);
-			});
-		}		
-	}
-	
+	  $scope.salvar = function() {    	
+	    	if ($scope.jogador.codigo == undefined || $scope.jogador.codigo == '') {
+				$http.post(url,$scope.jogador).success(function(jogador) {
+					$scope.jogadores.push($scope.jogador);
+					$scope.novo();
+					$scope.mensagens.push('Jogador salvo!');
+				}).error(function (erro) {
+					$scope.montaMensagemErro(erro.parameterViolations);
+				});
+			} else {
+				$http.put(url,$scope.jogador).success(function(jogador) {
+					$scope.pesquisar();
+					$scope.novo();
+					$scope.mensagens.push('Jogador atualizado!');
+				}).error(function (erro) {
+					$scope.montaMensagemErro(erro.parameterViolations);
+				});
+			}		
+		}
+		
+   
 	$scope.excluir = function() {
 		if ($scope.jogador.codigo == '') {
 			alert('Selecione um jogador');
